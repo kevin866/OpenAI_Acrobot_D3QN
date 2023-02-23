@@ -11,7 +11,7 @@ if __name__ == '__main__':
     agent.load_model()
     agent.set_learning_rate(lr=0.000001)
 
-    n_games = 50
+    n_games = 10
     scores = []
     epsilon = 1
     eps_history = []
@@ -48,7 +48,7 @@ if __name__ == '__main__':
             learn_time = time.time() - learn_time
 
             env.render()
-            time.sleep(0.015)
+            time.sleep(0.1)
             step_counter += 1
             step_time = time.time() - start_time
             step_times.append(step_time)
