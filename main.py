@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
         
         print('game:', i)
-        """
+        
         print('steps:', step_counter)
         print('total steps:', total_steps)
         print('score: %.2f' % score)
@@ -80,7 +80,7 @@ if __name__ == '__main__':
         print('game time: %.5f' % game_time, 'seconds')
         print('total time: %.2f' % ((time.time() - time_) / 60), 'minutes')
         print(80 * '- ')
-        """
+        
     print(score)
     filename = 'acrobot_tf2.png'
     x = [i+1 for i in range(n_games)]
