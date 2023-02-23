@@ -11,7 +11,7 @@ if __name__ == '__main__':
     agent.load_model()
     agent.set_learning_rate(lr=0.000001)
 
-    n_games = 100
+    n_games = 50
     scores = []
     epsilon = 1
     eps_history = []
@@ -66,8 +66,9 @@ if __name__ == '__main__':
         eps_history.append(epsilon)
         avg_score = np.mean(scores[-100:])
 
-
+        
         print('game:', i)
+        """
         print('steps:', step_counter)
         print('total steps:', total_steps)
         print('score: %.2f' % score)
@@ -79,7 +80,8 @@ if __name__ == '__main__':
         print('game time: %.5f' % game_time, 'seconds')
         print('total time: %.2f' % ((time.time() - time_) / 60), 'minutes')
         print(80 * '- ')
-
+        """
+    print(score)
     filename = 'acrobot_tf2.png'
     x = [i+1 for i in range(n_games)]
     plotLearning(x, scores, eps_history, filename)

@@ -38,7 +38,7 @@ class ReplayBuffer():
                                         dtype=np.float32)
         self.action_memory = np.zeros(self.mem_size, dtype=np.int32)
         self.reward_memory = np.zeros(self.mem_size, dtype=np.float32)
-        self.terminal_memory = np.zeros(self.mem_size, dtype=np.bool)
+        self.terminal_memory = np.zeros(self.mem_size, dtype=np.bool_)
 
     def store_transition(self, state, action, reward, state_, done):
         index = self.mem_cntr % self.mem_size
@@ -151,7 +151,7 @@ class Agent():
                                     self.memory.sample_buffer(self.batch_size)
 
         q_pred = self.q_eval(states)
-        q_next = tf.math.reduce_max(self.q_next(states_), axis=1, keepdims=True).numpy()
+        q_next = tf.reduce_max(self.q_next(states_), axis=1, keepdims=True).numpy()
         q_target = np.copy(q_pred)
 
         # improve on my solution!
@@ -164,6 +164,7 @@ class Agent():
         self.learn_step_counter += 1
 
     def save_model(self):
+        print(type(self.q_eval))
         self.q_eval.save(self.file_name)
 
     def load_model(self):
